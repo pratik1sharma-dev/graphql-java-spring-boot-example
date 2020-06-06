@@ -6,20 +6,28 @@ import com.example.DemoGraphQL.model.Book;
 import com.example.DemoGraphQL.repository.AuthorRepository;
 import com.example.DemoGraphQL.repository.BookRepository;
 
-public class Query implements GraphQLQueryResolver {
+public class QueryTest implements GraphQLQueryResolver {
     private BookRepository bookRepository;
     private AuthorRepository authorRepository;
 
-    public Query(AuthorRepository authorRepository, BookRepository bookRepository) {
+    public QueryTest(AuthorRepository authorRepository, BookRepository bookRepository) {
         this.authorRepository = authorRepository;
         this.bookRepository = bookRepository;
     }
 
+    /*
+    all queries are defined under "type query" in in schema files
+    Define resolvers: query, mutation and for joins
+    * */
     public Iterable<Book> findAllBooks() {
         return bookRepository.findAll();
     }
 
-    public Iterable<Author> findAllAuthors() {
+    /*
+    * This name and return type should match to the one defined in schema file.
+    * */
+
+    public Iterable<Author> findOneAuthors() {
         return authorRepository.findAll();
     }
 

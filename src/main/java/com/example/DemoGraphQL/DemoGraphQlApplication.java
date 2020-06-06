@@ -7,7 +7,9 @@ import com.example.DemoGraphQL.repository.AuthorRepository;
 import com.example.DemoGraphQL.repository.BookRepository;
 import com.example.DemoGraphQL.resolver.BookResolver;
 import com.example.DemoGraphQL.resolver.Mutation;
-import com.example.DemoGraphQL.resolver.Query;
+import com.example.DemoGraphQL.resolver.QueryTest;
+import com.example.DemoGraphQL.resolver.QueryTest;
+
 import graphql.ExceptionWhileDataFetching;
 import graphql.GraphQLError;
 import graphql.servlet.GraphQLErrorHandler;
@@ -59,8 +61,8 @@ public class DemoGraphQlApplication {
 	}
 
 	@Bean
-	public Query query(AuthorRepository authorRepository, BookRepository bookRepository) {
-		return new Query(authorRepository, bookRepository);
+	public QueryTest query(AuthorRepository authorRepository, BookRepository bookRepository) {
+		return new QueryTest(authorRepository, bookRepository);
 	}
 
 	@Bean
